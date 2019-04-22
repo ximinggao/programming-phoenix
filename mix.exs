@@ -20,7 +20,17 @@ defmodule Rumbl.MixProject do
   def application do
     [
       mod: {Rumbl.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [
+        :logger,
+        :runtime_tools,
+        :phoenix,
+        :phoenix_html,
+        :cowboy,
+        :gettext,
+        :phoenix_ecto,
+        :postgrex,
+        :comeonin
+      ]
     ]
   end
 
@@ -42,7 +52,10 @@ defmodule Rumbl.MixProject do
       {:phoenix_live_reload, "~> 1.2", only: :dev},
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
-      {:plug_cowboy, "~> 2.0"}
+      {:plug_cowboy, "~> 2.0"},
+      {:bcrypt_elixir, "~> 2.0"},
+      # {:comeonin, "~> 5.1"},
+      {:credo, "~> 1.0.0", only: [:dev, :test], runtime: false}
     ]
   end
 
