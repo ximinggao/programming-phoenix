@@ -1,4 +1,4 @@
-defmodule Rumbl.Model.User do
+defmodule Rumbl.Accounts.User do
   @moduledoc false
 
   use Ecto.Schema

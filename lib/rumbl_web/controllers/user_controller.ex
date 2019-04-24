@@ -3,7 +3,7 @@ defmodule RumblWeb.UserController do
   plug :authenticate when action in [:index, :show]
 
   alias Rumbl.Repo
-  alias Rumbl.Model.User
+  alias Rumbl.Accounts.User
 
   def index(conn, _params) do
     users = Repo.all(User)
