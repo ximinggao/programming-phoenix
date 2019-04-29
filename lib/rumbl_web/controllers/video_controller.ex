@@ -2,10 +2,24 @@ defmodule RumblWeb.VideoController do
   use RumblWeb, :controller
 
   alias Rumbl.Assets
+  alias Rumbl.Assets.Category
+  alias Rumbl.Repo
   # alias Rumbl.Assets.Video
+
+  plug :load_categories when action in [:new, :create, :edit, :update]
 
   def action(conn, _) do
     apply(__MODULE__, action_name(conn), [conn, conn.params, conn.assigns.current_user])
+  end
+
+  defp load_categories(conn, _) do
+    query =
+      Category
+      |> Category.alphabetical()
+      |> Category.names_and_ids()
+
+    categories = Repo.all(query)
+    assign(conn, :categories, categories)
   end
 
   def index(conn, _params, user) do
