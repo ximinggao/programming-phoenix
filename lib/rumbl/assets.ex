@@ -39,7 +39,7 @@ defmodule Rumbl.Assets do
       ** (Ecto.NoResultsError)
 
   """
-  def get_video!(id, user), do: Repo.get!((from v in user_videos(user), preload: [:category]), id)
+  def get_video!(id, user), do: Repo.get!(from(v in user_videos(user), preload: [:category]), id)
 
   @doc """
   Creates a video.
