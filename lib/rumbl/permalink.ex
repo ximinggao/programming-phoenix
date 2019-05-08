@@ -9,9 +9,11 @@ defmodule Rumbl.Permalink do
       _ -> :error
     end
   end
+
   def cast(integer) when is_integer(integer) do
     {:ok, integer}
   end
+
   def cast(_) do
     :error
   end
